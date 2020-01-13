@@ -55,7 +55,7 @@ class App extends Component {
   sortedStocks(){
   	if (this.state.sort === "Alphabetically") {
 		console.log("sorting Alphabetically")
-	  	return this.filteredStocks().sort((stocka, stockb) => (stocka.name > stockb.name) ? 1 : -1)
+	  	return this.filteredStocks().sort((stocka, stockb) => (stocka.ticker > stockb.ticker) ? 1 : -1)
   	} else if (this.state.sort === "Price") {
 		console.log("sorting Price")  		
 	  	return this.filteredStocks().sort((stocka, stockb) => (stocka.price > stockb.price) ? 1 : -1)
