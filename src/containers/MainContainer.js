@@ -52,13 +52,16 @@ class MainContainer extends Component {
   getStockObj=(stockObj)=>{
     let newArray = [...this.state.portofolioArray]
     this.state.stocks.map(stock => {
-      if(stock.id === stockObj.stock.id && !stock.isExist){
+      if(stock.id === stockObj.stock.id){
+        if(this.state.portofolioArray.includes(stock)){
+          alert("dont..")
+        }else{
         newArray.push(stock)
-        stock.isExist = true
+        }
       }
       return newArray
     })
-
+    
     this.setState({
       portofolioArray:newArray
     })
@@ -67,12 +70,6 @@ class MainContainer extends Component {
   removeStockObj=(stockObj)=>{
     this.setState({
       portofolioArray : this.state.portofolioArray.filter(stock => stock !== stockObj.stock)
-    })
-    this.state.stocks.map(stock => {
-      if(stock.id === stockObj.stock.id && stock.isExist){
-        return stock.isExist = false
-      }
-      return null
     })
   }
 
